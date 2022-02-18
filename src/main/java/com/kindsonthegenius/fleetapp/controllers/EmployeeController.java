@@ -90,14 +90,6 @@ public class EmployeeController {
 		return new ResponseEntity<>("File uploaded successfully", HttpStatus.OK);
 	}
 
-	@PostMapping("/employees/uploadPhoto2")
-	public String uploadFile2(@RequestParam("file") MultipartFile file, Principal principal)
-			throws IllegalStateException, IOException {
-		String baseDirectory = "C:\\Users\\issay\\Downloads\\SpringBoot\\fleetapp\\fleetapp\src\\main\\resources\\static\\img\\photos\\";
-		file.transferTo(new File(baseDirectory + principal.getName() + ".jpg"));
-		return "redirect:/employees";
-	}
-
 	@RequestMapping(value = "/employees/profile")
 	public String profile(Model model, Principal principal) {
 		String un = principal.getName();

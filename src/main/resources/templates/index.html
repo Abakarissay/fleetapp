@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -53,7 +53,7 @@
       </div>
 
       <!--logo start-->
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+      <a th:href="@{/index}" class="logo">Nice <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -1047,7 +1047,6 @@
                     </form>
                   </div>
 
-
                 </div>
                 <div class="widget-foot">
                   <!-- Footer goes here -->
@@ -1118,52 +1117,6 @@
     <script src="js/sparklines.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/jquery.slimscroll.min.js"></script>
-    <script>
-      //knob
-      $(function() {
-        $(".knob").knob({
-          'draw': function() {
-            $(this.i).val(this.cv + '%')
-          }
-        })
-      });
-
-      //carousel
-      $(document).ready(function() {
-        $("#owl-slider").owlCarousel({
-          navigation: true,
-          slideSpeed: 300,
-          paginationSpeed: 400,
-          singleItem: true
-
-        });
-      });
-
-      //custom select box
-
-      $(function() {
-        $('select.styled').customSelect();
-      });
-
-      /* ---------- Map ---------- */
-      $(function() {
-        $('#map').vectorMap({
-          map: 'world_mill_en',
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#000', '#000'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          backgroundColor: '#eef3f7',
-          onLabelShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
-        });
-      });
-    </script>
-
 </body>
 
 </html>
